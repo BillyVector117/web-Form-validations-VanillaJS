@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: antiquewhite;
+}
+
+main {
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+    padding: 40px;
+    border: 5px solid #efefef;
+}
+
+.formulario { /* Formulario principal */
+    display:grid; /* Mostrar elementos como grid */
+    grid-template-columns: 1fr 1fr; /* Dividir los grupos en 2 fracciones/columnas */
+    gap: 20px; /* Espaciado/separación entre cada grupo/filas y columnas */
+}
+
+.formulario__label { /* Etiqueta del formulario (cualquier grupo) */
+    display: block; /* En bloque ocupa todo el ancho disponible de la etiqueta */
+    font-weight: 700; /* Para tener la letra tipo bold */
+    padding: 10px; /* Margen interior */
+    cursor: pointer; /* El cursor toma otra forma */
+}
+
+.formulario__grupo-input {
+    position: relative; /* Para poder posicionar despues al icono dentro del input */
+}
+.formulario__input {
+    width: 100%; /* El espacio del input sera del ancho disponible (igual al del label) */
+    background: #fff; /* Fondo blanco */
+    border: 3px solid transparent; /* Sera transparente para que tome un efecto con "hover" */
+    border-radius: 3px; /* 3px de radio como borde */
+    height: 45px; /* Altura del input */
+    line-height: 45px; /* Altura entre cada renglón */
+    padding: 0 40px 0 10px; /* Margen interno forma reloj (top,right,bottom,left) */
+    transition: .3s ease all; /* Transición de los efectos (hover), con timing ease */
+}
+.formulario__input:hover{
+    border: 3px solid #0075FF; /* El borde tornara color azul */
+    outline: none; /* Ocultar un marcador que el browser coloca como predeterminado*/
+    box-shadow: 3px 0px 30px rgba(163, 163, 163, 1.0);/* Sombreado al estar hover activado */
+}
+.formulario__input-error { /* Mensaje error en cada grupo */
+    font-size: 12px;/* Tamaño de letra */
+    margin-bottom: 0px;/* Quitar margen inferior predeterminado de los parrafos  */
+    display: none;/* No se mostrara por defecto, a menos que el usuario tenga error */
+}
+.formulario__input-error-activo {/* Cuando el mensaje este activo se mostrara en tipo bloque */
+    display: block;    /* Solo se mostrara como bloque */
+}
+.formulario__validacion-estado { /* Icono dentro del div del input */
+    position: absolute; /* el div del input es relative, asi que este cambia a absolute */
+    right: 10px; /* Desplazarlo a la izquierda para que quede dentro del input */
+    top: 10px; /* Desplazarlo hacia abajo para que quede completamente posicionado */
+    z-index: 100; /* Asegurar que se encuentre arriba de otros elementos */
+    font-size: 16px;/* Tamaño del <<icono>> */
+    opacity: 0; /* 1 to 0, solo se mostrara el icono cuando haya un error */
+}
+.formulario__checkbox {
+    margin-right: 10px;/* Separación del checkbox con su texto */
+}
+.formulario__grupo-terminos, /* selección del div de terminos */
+.formulario__mensaje, /* selección del div del mensaje */
+.formulario__grupo-btn-enviar { /* selección del boton enviar */
+    grid-column: span 2;/* Abarcan dos columnas cada grupo, por ende se forman 3 filas */
+}
+.formulario__mensaje {/* Por defecto estara oculto */
+    height: 45px;/* Altura del div */
+    line-height: 45px;/* Separacion entre renglón */
+    background: #F66060;/* Color del fondo del mensaje */
+    padding: 0 15px;/* Margen interno, top-bot=0, left-right=15px */
+    border-radius: 3px;/* Borde circular del div */
+    display: none;/* Ocultado por defecto */
+}
+.formulario__mensaje-activo {/* Cuando este activo se mostrara el mensaje */
+    display: block;/* Se mostrara como elemento bloque */
+}
+.formulario__mensaje p {
+    margin: 0; /* Eliminar el margen predeterminado del parrafo */
+}
+.formulario__grupo-btn-enviar { /* div del botón */
+    display: flex; /* Para que sea flexible  */
+    flex-direction: column;/* El div del botón se apilara como columna */
+    align-items: center; /* El div del botón se centrara */
+}
+.formulario__btn { /* Botón enviar */
+    height: 45px;/* Altura del botón */
+    line-height: 45x; /* Altura del texto del botón */
+    width: 30%;
+    background: #000; /* Fondo negro  */
+    color: #fff; /* Letras blancas */
+    font-weight: 700; /* bold */
+    border: none; /* Sin bordes */
+    border-radius: 3px; /* Borde circular */
+    cursor: pointer; /* Cambiar el cursor  */
+    transition:  .1s ease all; /* Todas las transiciones seran de .1 segundos */
+}
+.formulario__btn:hover {
+    box-shadow: 3px 0px 30px rgba(58, 58, 58, .5);
+}
+.formulario__mensaje-exito {
+    font-size: 14px;/* Tamaño letra */
+    color: #119200;/* Color verde  */
+    display: none;/* Por defecto estara oculto */
+}
+.formulario__mensaje-exito-activo {
+    display: block;
+}
+
+/* VALIDATION STYLES*/
+.formulario__grupo-correcto .formulario__validacion-estado {/* Accede al icono si el div del grupo formulario termina en correcto */
+    color: #1ed12d;/* El color del icono tornara verde */
+    opacity: 1; /* Estara oculto por defecto. */
+}
+.formulario__grupo-incorrecto .formulario__label {/* Accede al label si la clase del grupo div termina en incorrecto */
+    color: #bb2929;/* Torna el color del label a rojo */
+}
+.formulario__grupo-incorrecto .formulario__validacion-estado {/* Accede al icono si la clase del grupo div termina en incorrecto */
+    color: #bb2929;/* Torna el color del label a rojo */
+    opacity: 1; /* El icono se hace visible, si esta incorrecto */
+}
+.formulario__grupo-incorrecto .formulario__input {/* Accede al input si la clase del grupo div termina en incorrecto */
+    border: 3px solid #bb2929; /* Torna a color rojo el borde del input */
+}
+/* MEDIAQUERIES*/
+@media screen and (max-width: 800px) { /* Cuando la pantalla sea menor a 800px */
+    .formulario {/* Accede a todo el formulario y ...*/
+        grid-template-columns: 1fr; /* En vez de que se divida en 2 columnas, ahora solo en 1 */
+    }    
+    .formulario__grupo-terminos, /* selección del div de terminos */
+    .formulario__grupo-mensaje, /* selección del div del mensaje */
+    .formulario__grupo-btn-enviar { /* selección del boton enviar */
+        grid-column: span 1;/* Solo abarcaran 1 columna los terminos, mensaje y el botón */
+    }
+    .formulario__btn {/* Accedemos al botón */
+        width: 100%; /* Tendra un ancho del 100% de su espacio */
+    }
+}

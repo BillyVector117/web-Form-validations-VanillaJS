@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webForm</title>
+    <!-- NORMALIZE CDN -->
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+    <!-- GOOGLE FONTS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- FONT AWESOME -->
+    <script src="https://use.fontawesome.com/f877aaf8f0.js"></script>
+  </head>
+  <body>
+    <main>
+      <!-- Group 1 -->
+      <form action="" class="formulario" id="formulario">
+        <div class="formulario__grupo" id="grupo__usuario">
+          <label for="usuario" class="formulario__label">Usuario</label>
+          <div class="formulario__grupo-input">
+            <input
+              type="text"
+              class="formulario__input"
+              name="usuario"
+              id="usuario"
+              placeholder="Your username here"
+            />
+            <i class="formulario__validacion-estado fa fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">
+            Username must have between 4-12 characteres (letters, numbers, dash
+            and underscore)
+          </p>
+        </div>
+        <!-- Group 2 Nombre -->
+        <div class="formulario__grupo" id="grupo__nombre">
+          <label for="nombre" class="formulario__label">Nombre</label>
+          <div class="formulario__grupo-input">
+            <input
+              type="text"
+              class="formulario__input"
+              name="nombre"
+              id="nombre"
+              placeholder="Type your name"
+            />
+            <i class="formulario__validacion-estado fa fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">
+            Name must have between 4-16 characteres (letters, numbers, spaces
+            and accents).
+          </p>
+        </div>
+
+        <!-- Group 3 Contraseña -->
+        <div class="formulario__grupo" id="grupo__password">
+          <label for="password" class="formulario__label">Password</label>
+          <div class="formulario__grupo-input">
+            <input
+              type="password"
+              class="formulario__input"
+              name="password"
+              id="password"
+              placeholder="*******"
+            />
+            <i class="formulario__validacion-estado fa fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">
+            Password allows only 4-12 digits
+          </p>
+        </div>
+        <!-- Group 4 Contraseña 2 -->
+        <div class="formulario__grupo" id="grupo__password2">
+          <label for="password2" class="formulario__label"
+            >Confirm password</label
+          >
+          <div class="formulario__grupo-input">
+            <input
+              type="password"
+              class="formulario__input"
+              name="password2"
+              id="password2"
+              placeholder=""
+            />
+            <i class="formulario__validacion-estado fa fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">Re-write your password</p>
+        </div>
+
+        <!-- Group 5 correo -->
+        <div class="formulario__grupo" id="grupo__correo">
+          <label for="correo" class="formulario__label">Email</label>
+          <div class="formulario__grupo-input">
+            <input
+              type="email"
+              class="formulario__input"
+              name="correo"
+              id="correo"
+              placeholder="test@mail.com"
+            />
+            <i class="formulario__validacion-estado fa fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">
+            Email only allows letters, numbers, underscore, dot and dash.
+          </p>
+        </div>
+
+        <!-- Group 6 telefono -->
+        <div class="formulario__grupo" id="grupo__telefono">
+          <label for="telefono" class="formulario__label">Number phone</label>
+          <div class="formulario__grupo-input">
+            <input
+              type="text"
+              class="formulario__input"
+              name="telefono"
+              id="telefono"
+              placeholder="555555555"
+            />
+            <i class="formulario__validacion-estado fa fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">
+            Number phone must have 8-14 characters
+          </p>
+        </div>
+
+        <!-- Group 7 terms and conditions -->
+        <div class="formulario__grupo-terminos" id="grupo__terminos">
+          <label for="" class="formulario__label">
+            <input
+              class="formulario__checkbox"
+              type="checkbox"
+              name="terminos"
+              id="terminos"
+            />
+            Accept Terms and Conditions
+          </label>
+        </div>
+
+        <div class="formulario__mensaje" id="formulario__mensaje">
+          <p>
+            <i class="fa fa-exclamation-circle"></i> <b> Error:</b> Must fill
+            all inputs, including Terms and Conditions.
+          </p>
+        </div>
+
+        <div class="formulario__grupo formulario__grupo-btn-enviar">
+          <button type="submit" class="formulario__btn">Send</button>
+          <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">
+            SENT SUCCESSFULLY
+          </p>
+        </div>
+      </form>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
